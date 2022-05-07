@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity"
+    android:id="@+id/mainLayout">
+
+    <com.s16.smluncher.views.HomeView
+        android:id="@+id/homeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.s16.smluncher.views.AppDrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/colorDrawerBackground"
+        app:cornerRadius="25dp"
+        app:behavior_peekHeight="160dp"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <fragment
+            android:id="@+id/drawerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.s16.smluncher.fragments.DrawerFragment"
+            tools:layout="@layout/fragment_drawer" />
+
+    </com.s16.smluncher.views.AppDrawerLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

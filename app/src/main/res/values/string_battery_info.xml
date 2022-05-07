@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_info_tile_label">Battery Info</string>
+
+    <string name="title_plugged_state">Plugged state</string>
+    <string name="title_battery_status">Battery status</string>
+    <string name="title_health_status">Health status</string>
+    <string name="title_chemistry">Chemistry</string>
+    <string name="title_design_capacity">Design capacity</string>
+    <string name="title_current_capacity">Current capacity</string>
+    <string name="title_level">Battery Level</string>
+    <string name="title_level_consumed">Level consumed</string>
+    <string name="title_level_accurate">Level accurate</string>
+    <string name="title_temperature">Temperature</string>
+    <string name="title_voltage">Voltage</string>
+    <string name="title_current_amperage">Current Amperage</string>
+    <string name="title_current_wattage">Current wattage</string>
+    <string name="title_c_rate">C-Rate</string>
+
+    <string name="title_charger">Charger</string>
+    <string name="title_max_charging_voltage">Max Charging Voltage</string>
+    <string name="title_max_charging_current">Max Charging Current</string>
+    <string name="title_charging_counter">Charging Counter</string>
+    <string name="title_capacity">Capacity</string>
+    <string name="title_current_average">Current Average</string>
+    <string name="title_current_now">Current Now</string>
+    <string name="title_energy_counter">Energy Counter</string>
+    <string name="title_average_power">Average Power</string>
+    <string name="title_remaining_capacity">Remaining Capacity</string>
+
+    <string name="title_charging_current">Charging Current</string>
+    <string name="title_charging_voltage">Charging Voltage</string>
+</resources>

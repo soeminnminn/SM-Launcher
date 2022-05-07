@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/drawable/ic_lock_tile.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/layout/activity_blank_screen.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/xml/accessibility_service_config.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable-v23/rounded_ripple_36.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable-v23/rounded_ripple_48.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/bottom_sheet.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/ic_clear_gray.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/ic_info_outline_gray.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/ic_more_gray.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/ic_search_gray.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/ic_settings.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/ic_settings_gray.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/rounded_ripple_36.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/rounded_ripple_48.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/search_box_background.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/transparent.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/white.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/white_circle.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable/work_badge.xml" value="0.2205" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/activity_hide_apps.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/activity_main.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/activity_settings.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/drawer_item.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/fragment_drawer.xml" value="0.3333333333333333" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/include_search.xml" value="0.4824120603015075" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/layout/list_item_app.xml" value="0.1" />
+        <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/menu/main.xml" value="0.32083333333333336" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/customizations.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/ic_battery.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/ic_clear_gray.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/walls.xml" value="0.2845" />
+        <entry key="app/src/main/res/layout/activity_battery_info.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/drawer_item.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/fragment_drawer.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2845" />
+        <entry key="app/src/main/res/xml/shortcuts.xml" value="0.333786231884058" />
+        <entry key="materialsearchbar/src/main/res/layout/item_last_request.xml" value="0.333786231884058" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

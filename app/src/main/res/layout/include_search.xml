@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_container"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/search_box_height"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:elevation="@dimen/dimen_8dp"
+    android:outlineProvider="none"
+    android:animateLayoutChanges="true">
+
+    <com.s16.widget.ClearableEditText
+        android:id="@+id/searchBarView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:background="@drawable/search_box_background"
+        tools:backgroundTint="@android:color/darker_gray"
+        android:drawableStart="@drawable/ic_search_gray"
+        android:drawableEnd="@drawable/ic_clear_gray"
+        android:drawablePadding="@dimen/dimen_16dp"
+        android:hint="@string/search_hint"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:lines="1"
+        android:textColorHint="@color/grey_45"
+        android:paddingStart="@dimen/dimen_16dp"
+        android:paddingEnd="52dp" />
+
+    <com.s16.widget.ActionButton
+        android:id="@+id/actionMenu"
+        style="@style/AppWidget.ActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="@dimen/dimen_24dp"
+        android:padding="@dimen/dimen_8dp"
+        android:contentDescription="@string/content_desc_menu"
+        android:background="@drawable/rounded_ripple_36"
+        app:icon="@drawable/ic_more_gray" />
+
+</FrameLayout>
