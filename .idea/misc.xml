@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/drawable/ic_lock_tile.xml" value="0.2205" />
         <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/layout/activity_blank_screen.xml" value="0.21739130434782608" />
+        <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/layout/include_navigation.xml" value="0.32083333333333336" />
         <entry key="..\:/Personal/projects/Android/SMLuncher/app/src/main/res/xml/accessibility_service_config.xml" value="0.21739130434782608" />
         <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable-v23/rounded_ripple_36.xml" value="0.2205" />
         <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/drawable-v23/rounded_ripple_48.xml" value="0.2205" />
@@ -32,16 +33,24 @@
         <entry key="..\:/Personal/projects/Battery/SMLuncher/app/src/main/res/menu/main.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/customizations.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/divider_background.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/ic_battery.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/ic_clear_gray.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/walls.xml" value="0.2845" />
         <entry key="app/src/main/res/layout/activity_battery_info.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/drawer_item.xml" value="0.333786231884058" />
         <entry key="app/src/main/res/layout/fragment_drawer.xml" value="0.333786231884058" />
+        <entry key="app/src/main/res/layout/include_navigation.xml" value="0.5" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.35625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2845" />
         <entry key="app/src/main/res/xml/shortcuts.xml" value="0.333786231884058" />
+        <entry key="materialcalendarview/src/main/res/drawable-ldrtl/mcv_action_next.xml" value="0.2845" />
+        <entry key="materialcalendarview/src/main/res/drawable-ldrtl/mcv_action_previous.xml" value="0.2845" />
+        <entry key="materialcalendarview/src/main/res/drawable/mcv_action_next.xml" value="0.2845" />
+        <entry key="materialcalendarview/src/main/res/layout/calendar_view.xml" value="0.333786231884058" />
         <entry key="materialsearchbar/src/main/res/layout/item_last_request.xml" value="0.333786231884058" />
       </map>
     </option>

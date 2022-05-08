@@ -27,5 +27,6 @@
     <dimen name="textSize_18sp">18sp</dimen>
     <dimen name="textSize_24sp">24sp</dimen>
     <dimen name="textSize_32sp">32sp</dimen>
+    <dimen name="textSize_48sp">48sp</dimen>
     <dimen name="textSize_64sp">64sp</dimen>
 </resources>

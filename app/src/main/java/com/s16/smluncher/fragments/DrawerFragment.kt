@@ -9,12 +9,10 @@ import android.widget.EditText
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.s16.ext.startActivity
 import com.s16.smluncher.MainApp
 import com.s16.smluncher.R
-import com.s16.smluncher.activities.HideAppsActivity
-import com.s16.smluncher.managers.AppInfo
 import com.s16.smluncher.adapters.DrawerAdapter
+import com.s16.smluncher.managers.AppInfo
 import com.s16.view.GridAutoFitLayoutManager
 import com.s16.view.RecyclerViewArrayAdapter
 import com.s16.view.SearchEditTextHelper
@@ -111,13 +109,7 @@ class DrawerFragment : Fragment(), SearchEditTextHelper.OnSearchListener, PopupM
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean = item?.let {
-        if (it.itemId == R.id.action_hide_apps) {
-            requireActivity().onBackPressed()
-            requireContext().startActivity<HideAppsActivity>()
-            true
-        } else {
-            requireActivity().onOptionsItemSelected(item)
-        }
+        requireActivity().onOptionsItemSelected(item)
     } ?: false
 
     override fun onDestroy() {

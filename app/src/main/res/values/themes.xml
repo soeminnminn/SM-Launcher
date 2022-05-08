@@ -11,12 +11,15 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="android:textAppearanceMedium">@style/AppTheme.TextAppearanceMedium</item>
+        <item name="android:textAppearanceSmall">@style/AppTheme.TextAppearanceSmall</item>
     </style>
     <style name="AppTheme.Home">
         <item name="android:windowShowWallpaper">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/white_20_opacity</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
@@ -57,5 +60,15 @@
         <item name="android:paddingRight">14dp</item>
         <item name="android:minWidth">48dp</item>
         <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="AppTheme.TextAppearanceMedium" parent="TextAppearance.AppCompat.Medium">
+        <item name="color">?attr/colorOnSecondary</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="AppTheme.TextAppearanceSmall" parent="TextAppearance.AppCompat.Small">
+        <item name="color">?attr/colorOnSecondary</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
     </style>
 </resources>

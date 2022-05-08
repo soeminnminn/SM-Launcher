@@ -30,7 +30,7 @@ class HomeView : FrameLayout {
     }
 
     @SuppressLint("CustomViewStyleable")
-    fun initialize(context: Context, attrs: AttributeSet?, defStyle: Int) {
+    private fun initialize(context: Context, attrs: AttributeSet?, defStyle: Int) {
         gestureDetector = GestureDetector(context, object: GestureDetector.SimpleOnGestureListener() {
             override fun onDown(e: MotionEvent?): Boolean {
                 timeSincePress = System.currentTimeMillis()

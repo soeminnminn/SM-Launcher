@@ -8,7 +8,6 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatTextView
-import com.s16.drawables.BatteryMeter
 import com.s16.smluncher.R
 import com.s16.smluncher.helpers.BatteryStats
 import com.s16.smluncher.views.BatteryMeterView
@@ -33,7 +32,6 @@ class BatteryInfoActivity : AppCompatActivity() {
             val textCharger : AppCompatTextView = findViewById(R.id.textCharger)
         }
 
-        binding.batteryView.theme = BatteryMeter.Theme.ROUNDED
         binding.batteryView.criticalChargeLevel = 15
 
         broadcastReceiver = object:BroadcastReceiver() {

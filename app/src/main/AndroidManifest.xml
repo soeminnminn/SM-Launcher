@@ -78,18 +78,6 @@
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
-
-        <service
-            android:name=".services.BatteryInfoTileService"
-            android:label="@string/battery_info_tile_label"
-            android:icon="@drawable/ic_battery"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            android:exported="false">
-
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>

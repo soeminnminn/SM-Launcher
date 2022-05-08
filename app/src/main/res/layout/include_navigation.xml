@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/dimen_8dp"
+    android:paddingEnd="@dimen/dimen_8dp"
+    tools:showIn="mainNavigation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/batteryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.s16.smluncher.views.BatteryMeterView
+                android:id="@+id/batteryView"
+                android:layout_width="@dimen/dimen_64dp"
+                android:layout_height="@dimen/dimen_128dp"
+                android:layout_marginStart="@dimen/dimen_32dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                app:batteryMeterColor="?colorAccent"
+                app:batteryMeterCriticalColor="?colorError" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textBatteryLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_toEndOf="@id/batteryView"
+                android:gravity="center"
+                android:textSize="@dimen/textSize_48sp"
+                android:textStyle="bold"
+                tools:text="100%" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textBatteryStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textBatteryLevel"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_toEndOf="@id/batteryView"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceMedium"
+                tools:text="Fully charged" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@id/batteryView"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:background="@drawable/divider_background" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/clockLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            tools:minHeight="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/batteryLayout">
+
+            <com.s16.smluncher.views.AnalogClockView
+                android:id="@+id/clockView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_32dp"
+                android:layout_gravity="center" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/divider_background" />
+
+        </FrameLayout>
+
+        <com.s16.smluncher.views.MonthView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clockLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

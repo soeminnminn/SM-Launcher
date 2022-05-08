@@ -88,7 +88,7 @@ class BatteryStats(context: Context, batteryIntent: Intent?) {
     val statusText: String
         get() = when (status) {
             BATTERY_STATUS_CHARGING -> "Charging"
-            BATTERY_STATUS_FULL -> "Full"
+            BATTERY_STATUS_FULL -> "Fully charged"
             BATTERY_STATUS_DISCHARGING -> "Discharging"
             BATTERY_STATUS_NOT_CHARGING -> "Not Charging"
             BATTERY_STATUS_UNKNOWN -> "Unknown"
@@ -181,7 +181,7 @@ class BatteryStats(context: Context, batteryIntent: Intent?) {
      * Method to get the charger is invalid.
      */
     val isInvalidCharger: Boolean
-        get() = mBatteryIntent?.getBooleanExtra(EXTRA_INVALID_CHARGER, false) ?: false
+        get() = (mBatteryIntent?.getIntExtra(EXTRA_INVALID_CHARGER, 0) ?: 0) != 0
 
     val isFastCharging: Boolean
         get() = mBatteryIntent?.getBooleanExtra(EXTRA_FAST_CHARGE_STATUS, false) ?: false
