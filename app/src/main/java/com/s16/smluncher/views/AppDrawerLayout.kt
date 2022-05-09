@@ -152,7 +152,7 @@ class AppDrawerLayout : FrameLayout,
         heightPixels = context.resources.displayMetrics.heightPixels
         fullHeight = max(parentHeight, heightPixels)
 
-        val containerHeight = heightPixels - insetTop
+        val containerHeight = parentHeight - insetTop
         if (container.measuredHeight != containerHeight) {
             container.layoutParams.height = containerHeight
             container.requestLayout()

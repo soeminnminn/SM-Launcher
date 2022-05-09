@@ -29,17 +29,12 @@ class MainActivity : AppCompatActivity() {
     private val mainView by lazy { findViewById<DrawerLayout>(R.id.mainLayout)!! }
     private val homeView by lazy { findViewById<HomeView>(R.id.homeView)!! }
     private val drawerView by lazy { findViewById<AppDrawerLayout>(R.id.drawerLayout)!! }
+    private val batteryLayout by lazy { findViewById<ViewGroup>(R.id.batteryLayout)!! }
     private val calendarView by lazy { findViewById<MonthView>(R.id.calendarView)!! }
 
     private lateinit var drawerBehavior: BottomSheetBehavior<ViewGroup>
     private lateinit var powerReceiver: BroadcastReceiver
-
-    private val dayChangedReceiver = object : DayChangedBroadcastReceiver() {
-
-        override fun onDayChanged() {
-            calendarView.today()
-        }
-    }
+    private lateinit var dayChangedReceiver: DayChangedBroadcastReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,19 +107,34 @@ class MainActivity : AppCompatActivity() {
                 textBatteryStatus.text = stats.statusText
             }
         }
+
+        batteryLayout.setOnClickListener {
+            onBackPressed()
+            startActivity<BatteryInfoActivity>()
+        }
+
+        dayChangedReceiver = object : DayChangedBroadcastReceiver() {
+
+            override fun onDayChanged() {
+                calendarView.today()
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        registerReceiver(dayChangedReceiver, DayChangedBroadcastReceiver.intentFilter)
-
+        if (this::dayChangedReceiver.isInitialized) {
+            registerReceiver(dayChangedReceiver, DayChangedBroadcastReceiver.intentFilter)
+        }
         if (this::powerReceiver.isInitialized) {
             registerReceiver(powerReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
         }
     }
 
     override fun onStop() {
-        unregisterReceiver(dayChangedReceiver)
+        if (this::dayChangedReceiver.isInitialized) {
+            unregisterReceiver(dayChangedReceiver)
+        }
         if (this::powerReceiver.isInitialized) {
             unregisterReceiver(powerReceiver)
         }

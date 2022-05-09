@@ -1,234 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?colorOnPrimarySurface"
     tools:context=".activities.BatteryInfoActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_16dp"
-        android:orientation="vertical"
-        app:cardCornerRadius="@dimen/dimen_12dp"
-        app:cardElevation="@dimen/dimen_1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-        <ScrollView
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="?attr/actionBarSize"
             android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dimen_4dp"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginRight="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_collapseMode="pin"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true">
+            android:layout_margin="@dimen/dimen_16dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/dimen_12dp"
+            app:cardElevation="@dimen/dimen_1dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true">
 
-                <com.s16.smluncher.views.BatteryMeterView
-                    android:id="@+id/batteryView"
-                    android:layout_width="@dimen/dimen_64dp"
-                    android:layout_height="@dimen/dimen_128dp"
-                    android:layout_marginStart="@dimen/dimen_32dp"
-                    android:layout_marginTop="@dimen/dimen_16dp"
-                    android:layout_marginEnd="@dimen/dimen_32dp"
-                    app:batteryMeterColor="?colorAccent"
-                    app:batteryMeterCriticalColor="?colorError"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="360dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="@dimen/dimen_16dp"
-                    android:layout_marginBottom="@dimen/dimen_16dp"
-                    android:paddingStart="@dimen/dimen_32dp"
-                    android:paddingEnd="@dimen/dimen_32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/batteryView" >
+                    <com.s16.smluncher.views.BatteryMeterView
+                        android:id="@+id/batteryView"
+                        android:layout_width="@dimen/dimen_64dp"
+                        android:layout_height="@dimen/dimen_128dp"
+                        android:layout_marginStart="@dimen/dimen_32dp"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:layout_marginEnd="@dimen/dimen_32dp"
+                        app:batteryMeterColor="?colorAccent"
+                        app:batteryMeterCriticalColor="?colorError"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:paddingStart="@dimen/dimen_32dp"
+                        android:paddingEnd="@dimen/dimen_32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/batteryView" >
 
-                        <com.google.android.material.textview.MaterialTextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/title_level"
-                            android:textAppearance="?textAppearanceListItem" />
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
 
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textLevel"
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_level"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textLevel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_level" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_level" />
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_chemistry"
+                                android:textAppearance="?attr/textAppearanceListItem"/>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textChemistry"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_chemistry" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_temperature"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textTemperature"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_temperature" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_plugged_state"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textPluggedState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_plugged_state" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_battery_status"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textBatteryStatus"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_battery_status" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_voltage"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textVoltage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_voltage" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_health_status"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textHealthStatus"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_health_status" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_charger"
+                                android:textAppearance="?textAppearanceListItem" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/textCharger"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                tools:text="@string/title_charger" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_chemistry"
-                            android:textAppearance="?attr/textAppearanceListItem"/>
+            </ScrollView>
 
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textChemistry"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_chemistry" />
+        </androidx.cardview.widget.CardView>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_temperature"
-                            android:textAppearance="?textAppearanceListItem" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textTemperature"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_temperature" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_plugged_state"
-                            android:textAppearance="?textAppearanceListItem" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textPluggedState"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_plugged_state" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_battery_status"
-                            android:textAppearance="?textAppearanceListItem" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textBatteryStatus"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_battery_status" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_voltage"
-                            android:textAppearance="?textAppearanceListItem" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textVoltage"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_voltage" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_health_status"
-                            android:textAppearance="?textAppearanceListItem" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textHealthStatus"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_health_status" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/dimen_8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title_charger"
-                            android:textAppearance="?textAppearanceListItem" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/textCharger"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:textAppearanceSmall"
-                            tools:text="@string/title_charger" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ScrollView>
-
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

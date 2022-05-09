@@ -15,7 +15,8 @@ class AnalogClockView : View {
 
     private val mClock = ClockDrawable()
     private val ATTRS = intArrayOf(
-        android.R.attr.textColorHint
+        android.R.attr.textColorHint,
+        android.R.attr.colorError
     )
 
     var showSecond = mClock.showSecond
@@ -46,6 +47,7 @@ class AnalogClockView : View {
     private fun initialize(context: Context, attrs: AttributeSet?) {
         val a = context.obtainStyledAttributes(attrs, ATTRS)
         val textColorHint = a.getColor(0, 0)
+        val errorColor = a.getColor(1, 0)
         a.recycle()
 
         val colorPrimary = getPrimaryColor(context)
@@ -58,8 +60,8 @@ class AnalogClockView : View {
         mClock.minuteDotColor = if (textColorHint == 0) ClockDrawable.MINUTE_DOT_COLOR
             else textColorHint
 
-        mClock.secondDotColor = if (colorPrimary == 0) ClockDrawable.SECOND_DOT_COLOR
-            else colorPrimary
+        mClock.secondDotColor = if (errorColor == 0) ClockDrawable.SECOND_DOT_COLOR
+            else errorColor
 
         mClock.handsColor = if (colorOnSecondary == 0) ClockDrawable.HAND_COLOR
             else colorOnSecondary

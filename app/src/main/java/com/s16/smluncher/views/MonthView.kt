@@ -1,12 +1,11 @@
 package com.s16.smluncher.views
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.RectF
+import android.graphics.*
 import android.os.Build
 import android.text.TextPaint
 import android.util.AttributeSet
@@ -18,7 +17,9 @@ import androidx.core.os.ConfigurationCompat
 import java.time.DayOfWeek
 import java.time.format.TextStyle
 import java.util.*
+import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.round
 
 
 class MonthView : AppCompatTextView, View.OnTouchListener {
@@ -65,14 +66,32 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
     private val mLeftArrowRect = RectF()
     private val mRightArrowRect = RectF()
     private val mYmRect = RectF()
+    private val mYmClipPath = Path()
 
     private val mPressPaint = Paint().apply {
         isAntiAlias = true
-        color = Color.LTGRAY
+        color = Color.GRAY
     }
     private var mLeftPressing = false
     private var mCenterPressing = false
     private var mRightPressing = false
+
+    private val isNightMode: Boolean
+        get() {
+            val nightModeFlags = context.resources.configuration.uiMode and
+                    Configuration.UI_MODE_NIGHT_MASK
+            return nightModeFlags == Configuration.UI_MODE_NIGHT_YES
+        }
+
+    private var rippleRadius: Float = 0f
+        set(value) {
+            if (field != value) {
+                field = value
+                invalidate()
+            }
+        }
+
+    private var mRippleAnimator: Animator? = null
 
     constructor(context: Context)
             : super(context) {
@@ -233,10 +252,44 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
         mLeftArrowRect.set(0f, 0f, mCellWidth.toFloat(), mCellHeight.toFloat())
         mYmRect.set(mCellWidth.toFloat(), 0f, (vWidth - mCellWidth).toFloat(), mCellHeight.toFloat())
         mRightArrowRect.set((vWidth - mCellWidth).toFloat(), 0f, vWidth.toFloat(), mCellHeight.toFloat())
+
+        mYmClipPath.reset()
+        mYmClipPath.addRect(mYmRect, Path.Direction.CW)
     }
 
     override fun onDraw(canvas: Canvas?) {
-        // super.onDraw(canvas)
+        super.onDraw(canvas)
+        canvas?.let { c ->
+            mPressPaint.color = if (isNightMode) Color.GRAY else Color.LTGRAY
+
+            val saveCount = c.save()
+            if (mLeftPressing) {
+                val progress = (max(mLeftArrowRect.width(), mLeftArrowRect.height()) * 0.5f) / rippleRadius
+                mPressPaint.alpha = round(80 * progress).toInt()
+
+                c.drawCircle(mLeftArrowRect.centerX(), mLeftArrowRect.centerY(), rippleRadius, mPressPaint)
+            }
+            if (mCenterPressing) {
+                val progress = (max(mYmRect.width(), mYmRect.height()) * 0.5f) / rippleRadius
+                mPressPaint.alpha = round(80 * progress).toInt()
+
+                c.clipPath(mYmClipPath)
+
+                c.drawCircle(mYmRect.centerX(), mYmRect.centerY(), rippleRadius, mPressPaint)
+            }
+            if (mRightPressing) {
+                val progress = (max(mRightArrowRect.width(), mRightArrowRect.height()) * 0.5f) / rippleRadius
+                mPressPaint.alpha = round(80 * progress).toInt()
+
+                c.drawCircle(mRightArrowRect.centerX(), mRightArrowRect.centerY(), rippleRadius, mPressPaint)
+            }
+            c.restoreToCount(saveCount)
+        }
+    }
+
+    override fun onDrawForeground(canvas: Canvas?) {
+        super.onDrawForeground(canvas)
+
         var row = 1
         var cell = 0
         canvas?.let {  c ->
@@ -251,20 +304,14 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
             var fontMetrics = mDayTextPaint.fontMetrics
             var halfLineHeight = (fontMetrics.ascent + fontMetrics.descent) * 0.5f
 
+            val saveCount = c.save()
+
             if (paddingStart > 0 || paddingTop > 0) {
                 c.translate(paddingStart.toFloat(), paddingTop.toFloat())
             }
 
-            mPressPaint.color = if (mLeftPressing) Color.LTGRAY else Color.TRANSPARENT
-            c.drawCircle(mLeftArrowRect.centerX(), mLeftArrowRect.centerY(), mCellRadius, mPressPaint)
             drawArrow(c, mLeftArrowRect, false)
-
-            mPressPaint.color = if (mCenterPressing) Color.LTGRAY else Color.TRANSPARENT
-            c.drawRoundRect(mYmRect, mCellRadius, mCellRadius, mPressPaint)
             c.drawText("$mYear - ${mMonthNames[mMonth]}", mYmRect.centerX(), mYmRect.centerY() - halfLineHeight, mDayTextPaint)
-
-            mPressPaint.color = if (mRightPressing) Color.LTGRAY else Color.TRANSPARENT
-            c.drawCircle(mRightArrowRect.centerX(), mRightArrowRect.centerY(), mCellRadius, mPressPaint)
             drawArrow(c, mRightArrowRect, true)
 
             mDayTextPaint.isFakeBoldText = false
@@ -290,7 +337,7 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
                 when {
                     day.isToday && day.isCurrentMon -> {
                         mDayTextPaint.color = textColor
-                        mTodayPaint.color = if (isNightMode()) {
+                        mTodayPaint.color = if (isNightMode) {
                             darkenColor(mTodayColor)
                         } else {
                             mTodayColor
@@ -314,6 +361,7 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
                     row++
                 }
             }
+            c.restoreToCount(saveCount)
         }
     }
 
@@ -334,12 +382,6 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
         canvas.restoreToCount(saveCount)
     }
 
-    private fun isNightMode(): Boolean {
-        val nightModeFlags = context.resources.configuration.uiMode and
-                Configuration.UI_MODE_NIGHT_MASK
-        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES
-    }
-
     private fun darkenColor(color: Int): Int {
         return Color.HSVToColor(FloatArray(3).apply {
             Color.colorToHSV(color, this)
@@ -349,16 +391,19 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
         return event?.let { e ->
-            when (e.action) {
+            when (e.actionMasked) {
                 MotionEvent.ACTION_DOWN -> {
                     if (mLeftArrowRect.contains(e.x, e.y)) {
                         mLeftPressing = true
+                        createRipple(mLeftArrowRect)
                         invalidate()
                     } else if (mRightArrowRect.contains(e.x, e.y)) {
                         mRightPressing = true
+                        createRipple(mRightArrowRect)
                         invalidate()
                     } else if (mYmRect.contains(e.x, e.y)) {
                         mCenterPressing = true
+                        createRipple(mYmRect)
                         invalidate()
                     }
                     true
@@ -373,12 +418,36 @@ class MonthView : AppCompatTextView, View.OnTouchListener {
                     if (mCenterPressing) today()
                     mCenterPressing = false
 
+                    mRippleAnimator?.cancel()
+                    mRippleAnimator = null
+
                     invalidate()
                     true
                 }
                 else -> false
             }
         } ?: false
+    }
+
+    private fun createRipple(rect: RectF) {
+        val maxRadius = max(rect.width(), rect.height()) * 0.5f
+        mRippleAnimator = ObjectAnimator.ofFloat(this, "rippleRadius", 0f, maxRadius)
+        mRippleAnimator!!.addListener(object: Animator.AnimatorListener {
+            override fun onAnimationStart(animator: Animator?) {
+            }
+
+            override fun onAnimationEnd(animator: Animator?) {
+                rippleRadius = 0f
+            }
+
+            override fun onAnimationCancel(animator: Animator?) {
+            }
+
+            override fun onAnimationRepeat(animator: Animator?) {
+            }
+
+        })
+        mRippleAnimator!!.start()
     }
 
     fun previous() {

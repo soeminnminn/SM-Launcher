@@ -76,6 +76,8 @@ class AppInfo {
         badgedLabel = context.packageManager.getUserBadgedLabel(label, user).toString()
     }
 
+    override fun toString(): String = label
+
     private fun getLauncherApps(context: Context)
         = context.applicationContext.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
 

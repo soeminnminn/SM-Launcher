@@ -53,7 +53,8 @@
         <activity
             android:name=".activities.BatteryInfoActivity"
             android:excludeFromRecents="true"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/action_battery_info" />
 
         <receiver
             android:name=".receivers.ScreenOffAdminReceiver"

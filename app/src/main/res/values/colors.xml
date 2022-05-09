@@ -24,10 +24,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="black_80_opacity">#CC000000</color>
+    <color name="black_50_opacity">#80000000</color>
+    <color name="black_33_opacity">#54000000</color>
+    <color name="black_20_opacity">#33000000</color>
+
     <color name="white_80_opacity">#CCFFFFFF</color>
     <color name="white_50_opacity">#80FFFFFF</color>
     <color name="white_33_opacity">#54FFFFFF</color>
     <color name="white_20_opacity">#33FFFFFF</color>
+
+    <color name="primaryColor">#5c6bc0</color>
+    <color name="primaryLightColor">#8e99f3</color>
+    <color name="primaryDarkColor">#26418f</color>
+    <color name="secondaryColor">#4db6ac</color>
+    <color name="secondaryLightColor">#82e9de</color>
+    <color name="secondaryDarkColor">#00867d</color>
 
     <color name="colorForeground">@color/black</color>
     <color name="colorDrawerBackground">@color/white_80_opacity</color>
