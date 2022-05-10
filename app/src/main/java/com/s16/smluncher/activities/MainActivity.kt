@@ -81,6 +81,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onBottomOverScroll(event: MotionEvent?) {
+                if (drawerBehavior.state == BottomSheetBehavior.STATE_COLLAPSED ||
+                    drawerBehavior.state == BottomSheetBehavior.STATE_HIDDEN) {
+                    drawerBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
             }
         })
 

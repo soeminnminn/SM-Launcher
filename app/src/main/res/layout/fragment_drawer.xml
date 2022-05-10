@@ -19,10 +19,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/dimen_8dp"
         android:layout_marginEnd="@dimen/dimen_8dp"
+        android:paddingTop="@dimen/search_box_height"
         android:paddingBottom="@dimen/dimen_8dp"
         android:clipToPadding="false"
         android:contentDescription="@string/content_desc_recycler"
